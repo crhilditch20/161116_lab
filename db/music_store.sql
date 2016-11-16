@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS songs;
 DROP TABLE IF EXISTS albums;
 DROP TABLE IF EXISTS artists;
 
@@ -12,3 +13,12 @@ CREATE TABLE albums(
   genre VARCHAR(255),
   artist_id INT8 references artists(id)
 );
+
+CREATE TABLE songs(
+  id SERIAL8 primary key,
+  title VARCHAR(255),
+  duration time,
+  cost FLOAT8,
+  album_id INT8 references albums(id)
+);
+
